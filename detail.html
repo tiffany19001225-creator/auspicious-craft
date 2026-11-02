@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail — Auspicious Craft</title>
+  <meta name="description" content="Product specifications, MOQ, packaging and lead time for Auspicious Craft resin nativity sets and Christmas crafts.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='21' fill='%237C1D2E'/%3E%3Cpath d='M22 7 l2.6 6.4 6.4 1 -4.4 4.2 1 6.4 -5.6 -3.2 -5.6 3.2 1 -6.4 -4.4 -4.2 6.4 -1 Z' fill='%23E4C877'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: { DEFAULT:'#7C1D2E', 50:'#faf0f2', 100:'#f4dde1', 200:'#e7b8c0', 300:'#d48a99', 400:'#bd5c70', 500:'#a03a52', 600:'#8a2b42', 700:'#7C1D2E', 800:'#5e1726', 900:'#451221' },
+            pine: { DEFAULT:'#1E4A3C', 50:'#eef4f1', 100:'#d6e6de', 200:'#adcdbf', 300:'#7fb29c', 400:'#57947c', 500:'#3b7762', 600:'#2c5f4d', 700:'#1E4A3C', 800:'#16372d', 900:'#0f2620' },
+            gold: { DEFAULT:'#F5B800', 50:'#faf6ec', 100:'#f3ead2', 200:'#ffe27a', 300:'#ffd45c', 400:'#ffc926', 500:'#F5B800', 600:'#d4a000', 700:'#b8860b', 800:'#8a6700', 900:'#6b4f00', light:'#F5B800' },
+            wood: { DEFAULT:'#8B5E3C', 50:'#f7f1ea', 100:'#ecdfcf', 200:'#d8bfa0', 300:'#c19c72', 400:'#a87f53', 500:'#8B5E3C', 600:'#704a30', 700:'#573a26', 800:'#3f2a1c', 900:'#2b1c13' },
+            cream: { DEFAULT:'#FAF6EF', 50:'#FDFBF7', 100:'#FAF6EF', 200:'#F3ECDD', 300:'#E9DFC8', soft:'#F3ECDD' },
+            night: { DEFAULT:'#211915', 50:'#f5f1ee', 700:'#3a2c25', 900:'#211915' }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="products" class="antialiased">
+
+  <header id="site-header"></header>
+
+  <main class="container-x py-10">
+    <nav id="breadcrumb" class="text-sm text-[#8a7c64] flex flex-wrap items-center gap-2"></nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-8">
+      <!-- Gallery -->
+      <div>
+        <div id="mainImage" class="product-frame rounded-2xl overflow-hidden border border-[#eadfc9] shadow-sm"></div>
+        <div class="flex items-center gap-3 mt-4">
+          <div id="thumbnails" class="flex gap-3"></div>
+          <p id="angleLabel" class="text-xs text-[#8a7c64] ml-auto hidden sm:block"></p>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div>
+        <h1 id="detailTitle" class="font-display text-3xl sm:text-4xl font-bold text-night leading-tight"></h1>
+        <p id="detailModel" class="mt-2 text-sm font-semibold text-gold-600 uppercase tracking-wide"></p>
+        <p id="detailPrice" class="mt-4 text-2xl font-bold text-burgundy"></p>
+
+        <div id="highlightChips" class="flex flex-wrap gap-2 mt-4"></div>
+
+        <p id="detailDesc" class="mt-5 text-[#5a4d3d] leading-relaxed"></p>
+
+        <dl id="specList" class="mt-7 bg-white border border-[#eadfc9] rounded-2xl px-5 py-2"></dl>
+
+        <a id="inquireBtn" href="contact.html#inquiry" class="btn-gold w-full sm:w-auto px-8 py-4 text-base mt-7">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path d="M7 8h3v6H8a2 2 0 0 1-2-2v-2a2 2 0 0 1 1-2Zm9 0h3v6h-2a2 2 0 0 1-2-2v-2a2 2 0 0 1 1-2Z"/></svg>
+          <span data-i18n="detail.inquire">Inquire Now</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Related -->
+    <section class="mt-20">
+      <div class="text-center">
+        <p class="text-xs uppercase tracking-[0.24em] text-gold-600 font-bold" data-i18n="detail.related">You may also like</p>
+        <h2 class="font-display text-3xl font-bold text-night mt-2" data-i18n="detail.relatedTitle">Related Products</h2>
+      </div>
+      <div id="relatedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

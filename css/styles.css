@@ -1,0 +1,406 @@
+/* ==========================================================================
+   Auspicious Craft — Premium Resin Nativity & Religious Gifts (B2B)
+   Global Theme Styles
+   --------------------------------------------------------------------------
+   Palette
+     Burgundy  : #7C1D2E   Pine green : #1E4A3C
+     Gold      : #C9A24B   Warm wood  : #8B5E3C
+     Cream     : #FAF6EF   Night      : #211915
+   ========================================================================== */
+
+:root {
+  --burgundy: #7C1D2E;
+  --burgundy-dark: #5E1726;
+  --pine: #1E4A3C;
+  --pine-dark: #16372D;
+  --gold: #D4A000;
+  --gold-light: #F5B800;
+  --wood: #8B5E3C;
+  --cream: #FAF6EF;
+  --cream-soft: #F3ECDD;
+  --night: #211915;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background-color: var(--cream);
+  color: #2b2320;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* --------------------------------------------------------------------------
+   Layout helper — a centered, max-width container with responsive gutters
+   -------------------------------------------------------------------------- */
+.container-x {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 640px)  { .container-x { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .container-x { padding-left: 2rem; padding-right: 2rem; } }
+
+/* --------------------------------------------------------------------------
+   Selection + scrollbar
+   -------------------------------------------------------------------------- */
+::selection {
+  background: var(--burgundy);
+  color: #fff;
+}
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: #ece3d2; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold), #a9823a);
+  border-radius: 999px;
+  border: 2px solid #ece3d2;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-image: linear-gradient(135deg, #E4C877 0%, #C9A24B 45%, #A9823A 100%);
+  color: #3a2a10;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px -8px rgba(169, 130, 58, 0.65);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 16px 30px -8px rgba(169, 130, 58, 0.75);
+}
+.btn-gold:active { transform: translateY(0); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px solid rgba(255,255,255,.85);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,.08);
+  transition: background .25s ease, transform .25s ease, border-color .25s ease;
+}
+.btn-outline:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+
+/* --------------------------------------------------------------------------
+   Header / Navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+.top-strip {
+  background: linear-gradient(90deg, var(--burgundy-dark), var(--burgundy) 55%, var(--pine-dark));
+  color: #f5ead8;
+}
+.nav-bar {
+  background: rgba(250, 246, 239, .98);
+  border-bottom: 1px solid rgba(124, 29, 46, .08);
+  transition: box-shadow .3s ease, background .3s ease;
+}
+.nav-bar.is-scrolled {
+  box-shadow: 0 10px 30px -12px rgba(33, 25, 21, .35);
+  background: rgba(250, 246, 239, .99);
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #4a3c33;
+  padding: .5rem .25rem;
+  transition: color .2s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--burgundy));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+.nav-link:hover { color: var(--burgundy); }
+.nav-link:hover::after,
+.nav-link.is-active::after { transform: scaleX(1); }
+.nav-link.is-active { color: var(--burgundy); }
+
+/* Language switcher dropdown */
+.lang-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + .6rem);
+  min-width: 11rem;
+  background: #fff;
+  border: 1px solid #ece0cb;
+  border-radius: .75rem;
+  box-shadow: 0 20px 45px -18px rgba(33,25,21,.35);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 70;
+}
+.lang-menu.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.lang-menu button {
+
+/* --------------------------------------------------------------------------
+   Cards + hover effects
+   -------------------------------------------------------------------------- */
+.card-hover {
+  transition: transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 50px -24px rgba(33,25,21,.45);
+}
+.card-zoom { overflow: hidden; }
+.card-zoom svg,
+.card-zoom img { transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+.card-hover:hover .card-zoom svg,
+.card-hover:hover .card-zoom img { transform: scale(1.04); }
+
+/* --------------------------------------------------------------------------
+   Product photo frame — flexible 4:3 box, no cropping, breathing room.
+   Any photo size is contained & centred inside a consistent light-gray box.
+   -------------------------------------------------------------------------- */
+.product-frame {
+  display: block;
+  aspect-ratio: 4 / 3;
+  background-color: #f9fafb; /* light gray (bg-gray-50) */
+  padding: 1.25rem;
+}
+.product-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Reveal-on-scroll animation
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* --------------------------------------------------------------------------
+   Decorative helpers
+   -------------------------------------------------------------------------- */
+.gold-text {
+  background: linear-gradient(120deg, #E4C877, #C9A24B 50%, #b08a3e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(201,162,75,.6), transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+.field-label {
+  display: block;
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  color: #000000;
+  margin-bottom: .4rem;
+}
+.field {
+  width: 100%;
+  border: 1px solid #e2d6bd;
+  background: #fffdf8;
+  border-radius: .7rem;
+  padding: .8rem 1rem;
+  font-size: .95rem;
+  color: #000000;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.field::placeholder { color: #b3a68f; }
+/* 输入框文字强制黑色（手动输入 / 聚焦 / 自动填充都生效） */
+input.field,
+textarea.field,
+select.field {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000;
+}
+/* 覆盖浏览器自动填充的黄色/蓝色背景，并保持文字黑色 */
+input.field:-webkit-autofill,
+input.field:-webkit-autofill:hover,
+input.field:-webkit-autofill:focus,
+textarea.field:-webkit-autofill,
+textarea.field:-webkit-autofill:hover,
+textarea.field:-webkit-autofill:focus,
+select.field:-webkit-autofill,
+select.field:-webkit-autofill:hover,
+select.field:-webkit-autofill:focus {
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-box-shadow: 0 0 0 1000px #fffdf8 inset !important;
+  box-shadow: 0 0 0 1000px #fffdf8 inset !important;
+  background-color: #fffdf8 !important;
+  caret-color: #000000;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201,162,75,.18);
+  background: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Product thumbnails (detail page)
+   -------------------------------------------------------------------------- */
+.thumb {
+  border: 2px solid transparent;
+  border-radius: .9rem;
+  cursor: pointer;
+  transition: border-color .2s ease, transform .2s ease;
+}
+.thumb:hover { transform: translateY(-2px); }
+.thumb.is-active { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,162,75,.2); }
+
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .6rem .9rem;
+  font-weight: 500;
+  color: #4a3c33;
+  transition: background .15s ease;
+}
+.lang-menu button:hover { background: #f7f0e3; }
+.lang-menu button.is-active { color: var(--burgundy); font-weight: 700; }
+
+
+/* --------------------------------------------------------------------------
+   Modal
+   -------------------------------------------------------------------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 16, .6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.modal-backdrop.open { opacity: 1; pointer-events: auto; }
+.modal-card {
+  background: #fffdf8;
+  border-radius: 1.25rem;
+  max-width: 34rem;
+  width: 100%;
+  padding: 2.2rem;
+  text-align: center;
+  box-shadow: 0 40px 80px -30px rgba(33,25,21,.6);
+  transform: translateY(12px) scale(.98);
+  transition: transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.modal-backdrop.open .modal-card { transform: translateY(0) scale(1); }
+
+/* --------------------------------------------------------------------------
+   Animations
+   -------------------------------------------------------------------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes starGlow {
+  0%, 100% { opacity: .55; filter: drop-shadow(0 0 6px rgba(255,222,140,.8)); }
+  50%      { opacity: 1;   filter: drop-shadow(0 0 22px rgba(255,222,140,1)); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.anim-fade-up { animation: fadeUp .8s ease both; }
+.star-glow { animation: starGlow 3.5s ease-in-out infinite; }
+.floaty { animation: floaty 5s ease-in-out infinite; }
+.delay-1 { animation-delay: .15s; }
+.delay-2 { animation-delay: .3s; }
+.delay-3 { animation-delay: .45s; }
+
+/* --------------------------------------------------------------------------
+   Stat counter (Company Strength)
+   -------------------------------------------------------------------------- */
+.stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+/* --------------------------------------------------------------------------
+   Hero overlay gradient for text legibility
+   -------------------------------------------------------------------------- */
+.hero-overlay {
+  background: linear-gradient(180deg,
+    rgba(18, 12, 10, .62) 0%,
+    rgba(30, 18, 15, .45) 45%,
+    rgba(33, 25, 21, .82) 100%);
+}
+
+/* Smooth anchor offset for sticky header */
+section[id], div[id="inquiry"] { scroll-margin-top: 120px; }
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+select.field option {
+  color: #000000;
+}
